@@ -1,0 +1,99 @@
+.form-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 350px;
+  text-align: center;
+  transition:
+    background 0.3s,
+    border 0.3s;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 0;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--text-main);
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+input[type="number"] {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: "DM Mono", monospace;
+  font-size: 20px;
+  font-weight: 500;
+  background: var(--bg-input);
+  color: var(--text-main);
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.operators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 15px 0;
+
+  button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-input);
+    color: var(--text-muted);
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &.active {
+      background: var(--text-main);
+      color: var(--bg-card);
+      border-color: var(--text-main);
+    }
+  }
+}
+
+.result-display {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 500;
+  font-family: "DM Mono", monospace;
+  color: var(--text-main);
+  transition: color 0.3s;
+}
