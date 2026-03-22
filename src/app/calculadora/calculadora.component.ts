@@ -1,4 +1,4 @@
-import { Component, computed, signal, OnInit } from '@angular/core';
+import { Component, computed, signal, effect } from '@angular/core';
 
 @Component({
   selector: 'app-calculadora',
@@ -6,17 +6,18 @@ import { Component, computed, signal, OnInit } from '@angular/core';
   templateUrl: './calculadora.component.html',
   styleUrl: './calculadora.component.scss',
 })
-export class CalculadoraComponent implements OnInit {
+export class CalculadoraComponent {
   // MODO ESCURO
   darkMode = signal(true);
 
-  ngOnInit() {
-    document.body.classList.add('dark');
+  constructor() {
+    effect(() => {
+      document.body.classList.toggle('dark', this.darkMode());
+    });
   }
 
   toggleTheme() {
-    this.darkMode.update((v) => !v);
-    document.body.classList.toggle('dark', this.darkMode());
+    this.darkMode.update((modoAtual) => !modoAtual);
   }
 
   // OPERAÇÕES MATEMÁTICAS
@@ -24,7 +25,7 @@ export class CalculadoraComponent implements OnInit {
   numero2 = signal(0);
   operacao = signal<'+' | '-' | '*' | '/'>('+');
 
-  resultado = computed(() => {
+  resultado = computed<number | string>(() => {
     let valor: number = 0;
 
     switch (this.operacao()) {
