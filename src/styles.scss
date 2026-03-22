@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap');
 
-body {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg-page);
-  transition: background 0.3s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  padding: 0;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
 }
 
 :root {
@@ -27,4 +28,20 @@ body.dark {
   --text-main: #f0f0f0;
   --text-muted: #aaaaaa;
   --border: #444444;
+  color-scheme: dark;
+}
+
+body.dark img {
+  opacity: 0.85;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
